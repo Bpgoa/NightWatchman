@@ -85,6 +85,8 @@ SENDTOLOG("Night Watchman is On Duty (CTRL+C to exit)"")
 
 try:
     GPIO.setmode(GPIO.BCM)
+    # setup call backs for interupts on PIR pins
+    # the value 9 is a rogue value to stop the callbacks from being setup
     if PIR_PIN_1_PRIORITY != 9:
         GPIO.add_event_detect(PIR_PIN_1, GPIO.RISING, callback=MOTION_1)
     if PIR_PIN_2_PRIORITY != 9:
