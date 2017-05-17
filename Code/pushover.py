@@ -99,5 +99,5 @@ try:
     while 1:
         time.sleep(100)
 except KeyboardInterrupt:
-    print " Quit"
+    SENDTOLOG("Night Watchman is closing down")
     GPIO.cleanup()
