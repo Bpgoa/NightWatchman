@@ -48,13 +48,17 @@ SENDTOLOG("Watchman is starting up")
 
 # setup GPIO pins
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(PIR_PIN_1, GPIO.IN)
-GPIO.setup(PIR_PIN_2, GPIO.IN)
-GPIO.setup(PIR_PIN_3, GPIO.IN)
-GPIO.setup(PIR_PIN_4, GPIO.IN)
+if PIR_PIN_1_PRIORITY != 9:
+   GPIO.setup(PIR_PIN_1, GPIO.IN)
+if PIR_PIN_2_PRIORITY != 9:
+    GPIO.setup(PIR_PIN_2, GPIO.IN)
+if PIR_PIN_2_PRIORITY != 9:
+    GPIO.setup(PIR_PIN_3, GPIO.IN)
+if PIR_PIN_2_PRIORITY != 9:
+    GPIO.setup(PIR_PIN_4, GPIO.IN)
 
 # log GPIO pins set up
-SENDTOLOG("GPIO pins set up")
+SENDTOLOG("PIR GPIO pins set up: 1 = "str(PIR_PIN_1_PRIORITY) + " 2 = " + str(PIR_PIN_2_PRIORITY)+ " 3 = " + str(PIR_PIN_3_PRIORITY)+ " 4 = " + str(PIR_PIN_4_PRIORITY) )
 
 
 # log starting to setup Pushover
