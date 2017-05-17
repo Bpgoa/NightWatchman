@@ -58,7 +58,7 @@ if PIR_PIN_4_PRIORITY != 9:
     GPIO.setup(PIR_PIN_4, GPIO.IN)
 
 # log GPIO pins set up
-TText = "PIR GPIO pins set up: 1 = " str(PIR_PIN_1_PRIORITY) + " 2 = " + str(PIR_PIN_2_PRIORITY) + " 3 = " + str(PIR_PIN_3_PRIORITY) + " 4 = "
+TText = "PIR GPIO pins set up: 1 = " + str(PIR_PIN_1_PRIORITY) + " 2 = " + str(PIR_PIN_2_PRIORITY) + " 3 = " + str(PIR_PIN_3_PRIORITY) + " 4 = " + str(PIR_PIN_4_PRIORITY)
 SENDTOLOG(TText)
 
 
