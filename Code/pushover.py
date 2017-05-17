@@ -52,9 +52,9 @@ if PIR_PIN_1_PRIORITY != 9:
    GPIO.setup(PIR_PIN_1, GPIO.IN)
 if PIR_PIN_2_PRIORITY != 9:
     GPIO.setup(PIR_PIN_2, GPIO.IN)
-if PIR_PIN_2_PRIORITY != 9:
+if PIR_PIN_3_PRIORITY != 9:
     GPIO.setup(PIR_PIN_3, GPIO.IN)
-if PIR_PIN_2_PRIORITY != 9:
+if PIR_PIN_4_PRIORITY != 9:
     GPIO.setup(PIR_PIN_4, GPIO.IN)
 
 # log GPIO pins set up
@@ -84,8 +84,15 @@ SENDTOLOG("Night Watchman is On Duty (CTRL+C to exit)"")
 #main loop
 
 try:
-    GPIO.add_event_detect(PIR_PIN_1, GPIO.RISING, callback=MOTION_1)
-    GPIO.add_event_detect(PIR_PIN_2, GPIO.RISING, callback=MOTION_2)
+    GPIO.setmode(GPIO.BCM)
+    if PIR_PIN_1_PRIORITY != 9:
+        GPIO.add_event_detect(PIR_PIN_1, GPIO.RISING, callback=MOTION_1)
+    if PIR_PIN_2_PRIORITY != 9:
+        GPIO.add_event_detect(PIR_PIN_2, GPIO.RISING, callback=MOTION_2)
+    if PIR_PIN_3_PRIORITY != 9:
+        GPIO.add_event_detect(PIR_PIN_2, GPIO.RISING, callback=MOTION_3)
+    if PIR_PIN_4_PRIORITY != 9:
+        GPIO.add_event_detect(PIR_PIN_2, GPIO.RISING, callback=MOTION_4)
     while 1:
         time.sleep(100)
 except KeyboardInterrupt:

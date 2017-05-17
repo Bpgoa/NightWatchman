@@ -8,6 +8,8 @@ PIR_PIN_4 = 8   # not used
 # ----------------
 
 # locations of PIR devices
+# change the string values to match desired location
+# put "Not Used " in any variable where no sensor is present
 PIR_PIN_1_LOCATION = "Outside Garage"
 PIR_PIN_2_LOCATION = "Inside Garage"
 PIR_PIN_3_LOCATION = "Not Used"
