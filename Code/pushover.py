@@ -79,7 +79,7 @@ SENDTOLOG(UserKeyStatus)
 #let everything (electronics) stabalise
 time.sleep(2)
 
-SENDTOLOG("Night Watchman is On Duty (CTRL+C to exit))
+SENDTOLOG("Night Watchman is On Duty (CTRL+C to exit)")
 
 
 #main loop
