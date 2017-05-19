@@ -1,12 +1,14 @@
 #!/usr/bin/python
-##coding:utf-8
+#coding:utf-8
+
 import RPi.GPIO as GPIO
 import time
 from chump import Application
 from setmeup import *
+from requests import get
 
 
-# this is a function to write out to the log file
+# this is a function to write out to the log file and console
 def SENDTOLOG(PassedText):
     print PassedText
     #open the file - defined in setmeup.py
@@ -22,10 +24,23 @@ def SENDTOLOG(PassedText):
 
 # these functions are called by interupts generated on the GPIO lines
 # variables are set up in setmeup.py to control actions
+
 def MOTION_1():
+    # write a trigger action to the log
     ActionSensed = "Motion Detected " + PIR_PIN_1_LOCATION
     SENDTOLOG(ActionSensed)
-    message = user.send_message(ActionSensed,priority=PIR_PIN_1_PRIORITY)
+    # get my external IP address to use in the message
+    ip = get('https://api.ipify.org').text
+    #write the discovered IP address to the logfile
+    SENDTOLOG("external IP address recorded as {}" .format(ip))
+    # build a link to find the Night Watchman
+    LinkToServer = "http:911//{}/main" .format(ip)
+    message = user.send_message(
+        title = "PIR 1 triggered", 
+        message = ActionSensed,
+        url = LinkToServer,
+        url_title = "Click here to go to the Night Watchman",
+        priority=PIR_PIN_1_PRIORITY)
 
 def MOTION_2():
     ActionSensed = "Motion Detected " + PIR_PIN_2_LOCATION

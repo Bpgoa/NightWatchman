@@ -1,5 +1,9 @@
 #coding:utf-8
 
+# log into your home router and create a port forward to point to this server
+# use the external port number 911 and direct it to port 80 on this machine
+
+
 #leave these alone unles you absolutely have to touch them
 PIR_PIN_1 = 23  # Right hand PIR - outside
 PIR_PIN_2 = 24  # Left hand PIR - inside - sends emergency message
