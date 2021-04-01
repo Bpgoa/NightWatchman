@@ -37,8 +37,8 @@ PIR_PIN_4_PRIORITY = 9
 
 # the following two keys are for pushover
 # you get them when you sign up and create an app
-AppKey = "attevjd8kcgd6eam6issgahy9923sn"
-UserKey = "upjprra9byi342g5qj81uxphhdc1cg"
+AppKey = "blahblahblah"
+UserKey = "BrianNowThatsaGoodName"
 # put the filename or fullpath and filename
 # for the logfile into the next  variable
 MyLogFile = "watchman_logfile.text"
